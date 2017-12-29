@@ -1,16 +1,19 @@
-FROM debian:stable
+# Dockerfile for docker image of RunDeck
+# https://github.com/bhalothia/docker-rundeck
+# RunDeck plugins from https://github.com/rundeck-plugins
 
-MAINTAINER Rodrigo Souza version: 0.1
+FROM debian:wheezy
+MAINTAINER Virendra Singh Bhalothia <bhalothia@theremotelab.com>
 
 ENV RDECK_BASE /var/lib/rundeck
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update &&\
-    apt-get -qqy install apt-utils &&\
+    apt-get -qqy upgrade &&\
     apt-get -qqy install --no-install-recommends bash\
                                                  procps\
                                                  sudo\
                                                  ca-certificates\
-                                                 openjdk-8-jdk\ 
+                                                 openjdk-7-jre-headless\
                                                  openssh-client\
                                                  pwgen\
                                                  curl\
@@ -29,8 +32,5 @@ RUN dpkg -i /tmp/rundeck.deb &&\
     mkdir -p $RDECK_BASE/.ssh &&\
     chown rundeck:rundeck $RDECK_BASE/.ssh
 
-EXPOSE 4440 4443
-
 # Start rundeck
 ENTRYPOINT ["/opt/entrypoint.sh"]
-
