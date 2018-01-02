@@ -8,8 +8,10 @@ MAINTAINER Rodrigo Souza
 ENV RDECK_BASE /var/lib/rundeck
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && \
-    apt-get -y install  procps sudo ca-certificates openjdk-8-jdk openssh-client pwgen curl mysql-client git uuid-runtime && \
+    apt-get -y install procps sudo ca-certificates openjdk-8-jdk openssh-client pwgen curl mysql-client git uuid-runtime && \
     apt-get clean
+
+ADD http://dl.bintray.com/rundeck/rundeck-deb/rundeck-2.7.3-1-GA.deb /tmp/rundeck.deb
 
 ADD prerequisites/ /
 
