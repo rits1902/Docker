@@ -3,7 +3,7 @@
 # RunDeck plugins from https://github.com/rundeck-plugins
 
 FROM debian:wheezy
-MAINTAINER Virendra Singh Bhalothia <bhalothia@theremotelab.com>
+MAINTAINER Rodrigo Souza 
 
 ENV RDECK_BASE /var/lib/rundeck
 
