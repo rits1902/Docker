@@ -17,6 +17,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update &&\
                                                  openssh-client\
                                                  pwgen\
                                                  curl\
+						 mysql-client\
                                                  git\
                                                  uuid-runtime &&\
     apt-get clean
