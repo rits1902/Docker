@@ -13,7 +13,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update &&\
                                                  procps\
                                                  sudo\
                                                  ca-certificates\
-                                                 openjdk-7-jre-headless\
+                                                 openjdk-8-jdk\
                                                  openssh-client\
                                                  pwgen\
                                                  curl\
